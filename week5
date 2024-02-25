@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        function validate() {
+            let fname = document.reg_form.fname;
+            let lname = document.reg_form.lname;
+            let gender = document.reg_form.gen;
+            let mobile = document.reg_form.mob;
+            let email = document.reg_form.email;
+            if (fname.value.length == 0 || lname.value.length == 0 || gender.value.length == 0) {
+                alert("Enter All the fields");
+                return false;
+            }
+            var alpha = /^[A-Za-z]+$/;
+            if (!fname.value.match(alpha) || !lname.value.match(alpha)) {
+                alert("ENter Valid first name and last Name");
+                return false;
+            }
+            if (mobile.value.length != 10) {
+                alert("Enter 10 digit mobile no");
+                return false;
+            }
+            var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-] + ) * $ /;
+
+            if (!email.value.match(validRegex)) {
+                alert("Enter Valid email id");
+                return false;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <center>
+        <form action="" onsubmit="return validate()" name="reg_form">
+            <table border="1">
+                <thead>
+                    <th colspan="2">Registration Form Validation</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>First Name : </td>
+                        <td><input type="text" id="fname"></td>
+                    </tr>
+                    <tr>
+                        <td>Last Name : </td>
+                        <td><input type="text" id="lname"></td>
+                    </tr>
+                    <tr>
+                        <td>Gender : </td>
+                        <td>Male <input type="radio" id="gen" name="gen"> Female <input type="radio" id="gen" name="gen"></td>
+                    </tr>
+                    <tr>
+                        <td>Mobile No : </td>
+                        <td><input type="text" id="mob"></td>
+                    </tr>
+                    <tr>
+                        <td>Email id : </td>
+                        <td><input type="text" id="email"></td>
+                    </tr>
+
+                    <tr>
+                        <td><input type="submit" value="Registration" /> </td>
+                        <td><input type="submit" value="Reset" /></tr>
+                </tbody>
+            </table>
+        </form>
+    </center>
+</body>
+
+</html>
